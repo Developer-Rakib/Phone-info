@@ -5,12 +5,12 @@ let inputFeild = document.getElementById("input-feild");
 let load = document.getElementById("loading");
 
 
-let url = `https://openapi.programming-hero.com/api/phone/apple_iphone_13_pro_max-11089`
-fetch(url)
-    .then(res => res.json())
-    .then(data => {
-        console.log(data.data);
-    })
+// let url = `https://openapi.programming-hero.com/api/phone/apple_iphone_13_pro_max-11089`
+// fetch(url)
+//     .then(res => res.json())
+//     .then(data => {
+//         console.log(data.data);
+//     })
 
 document.getElementById("search-btn").addEventListener("click", () => {
 
@@ -21,20 +21,22 @@ document.getElementById("search-btn").addEventListener("click", () => {
         load.style.display = "block";
         phones.textContent = "";
         phone.textContent = "";
-        let url = `https://openapi.programming-hero.com/api/phones?search=iphone`
+        let url = `https://openapi.programming-hero.com/api/phones?search=${inputFeild.value}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
 
 
                 setTimeout(() => {
-                    displyData(data.data);
-
+                    if (data.status == false) {
+                        alert("Data Not Available")
+                    } else {
+                        displyData(data.data);
+                    }
                 }, 500);
+
                 setTimeout(() => {
-
                     load.style.display = "none";
-
                 }, 500);
 
 
@@ -48,37 +50,39 @@ document.getElementById("search-btn").addEventListener("click", () => {
 
 
 function displyData(datas) {
-    if (datas == null) {
-        alert("Data Not Avaiable")
 
-    } else {
-        let data20 = datas.slice(0, 20);
-        data20.forEach(data => {
-            let div = document.createElement("div");
-            div.classList.add("phones-div")
-            div.innerHTML = `
-                            <div><img src="${data.image}" alt=""></div>
-                            <h5>Phone Name : ${data.phone_name}</h5>
-                            <p>Brand : ${data.brand}</p>
-                            <p>Phone Code : ${data.slug}</p>
-                            <button onclick="leadSinglePhone('${data.slug}')">Tap More Details</button>
+    let data20 = datas.slice(0, 20);
+    data20.forEach(data => {
+        let div = document.createElement("div");
+        div.classList.add("phones-div")
+        div.innerHTML = `
+                        <div><img src="${data.image}" alt=""></div>
+                        <h5>Phone Name : ${data.phone_name}</h5>
+                        <p>Brand : ${data.brand}</p>
+                        <p>Phone Code : ${data.slug}</p>
+                        <button onclick="leadSinglePhone('${data.slug}')">Tap More Details</button>
 
-                `;
-            phones.appendChild(div);
-
-
-
-        });
-    }
+            `;
+        phones.appendChild(div);
+    });
 
 }
 
 function leadSinglePhone(PhoneCode) {
-
+    load.style.display = "block";
     let url = `https://openapi.programming-hero.com/api/phone/${PhoneCode}`;
     fetch(url)
         .then(res => res.json())
-        .then(data => displySinglePhone(data.data))
+        .then(data => {
+
+            setTimeout(() => {
+                displySinglePhone(data.data)
+            }, 500);
+
+            setTimeout(() => {
+                load.style.display = "none";
+            }, 500);
+        })
 }
 function displySinglePhone(data) {
     console.log(data)
@@ -126,8 +130,6 @@ function displySinglePhone(data) {
             
             `;
         singlePhone.appendChild(div);
-
-
     }
     // phones.setAttribute("for", "team");
 
