@@ -8,7 +8,21 @@
             
         }
         :root{
-            --primary-color : green;
+            --primary-color : MediumVioletRed;
+        }
+        
+        .header {
+            color: var(--primary-color);
+        }
+        #search-btn{
+            color: var(--primary-color);
+            background-color: white;
+            border: 1px solid var(--primary-color);
+        }
+        #search-btn:hover{
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
         }
         #input-feild{
             width: 50%;
@@ -57,17 +71,6 @@
         #others{}
         #others li{}
 
-
-
-
-
-
-
-
-
-
-
-
         #phones{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -77,7 +80,6 @@
             margin: 10px;
             border-radius: 10px;
             padding: 17px 25px;
-            cursor: pointer;
             width: 325px;
         }
         .phones-div div {
@@ -103,16 +105,27 @@
             margin-bottom: 0;
         }
         #phones button {
-            border: none;
+            border: 3px solid var(--primary-color);
             outline: none;
-            padding: 7px 12px;
-            border-radius: 5px;
+            padding: 10px 24px;
+            border-radius: 24px;
             color: white;
             background: var(--primary-color);
-            font-size: 14px;
+            font-size: 15px;
             font-weight: 700;
             margin-top: 10px;
+            transition: 0.4s;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+
         }
+        #phones button:hover {
+            color: var(--primary-color);
+            background-color: white;
+
+        }
+        
+
         #loading{
             display: none;
             font-size: 50px;
