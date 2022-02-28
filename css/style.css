@@ -7,14 +7,17 @@
             font-family: 'Manrope', sans-serif;
             
         }
+        :root{
+            --primary-color : green;
+        }
         #input-feild{
             width: 50%;
         }
-        #team {
+        #phone {
             display: flex;
             justify-content: center;
         }
-        #team div{
+        #phone div{
             width: 35%;
             text-align: center;
             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
@@ -22,47 +25,65 @@
             padding: 25px 15px;
             margin-bottom: 20px;
         }
-        #team img {
+        #phone img {
             width: 200px;
         }
-        #team h3 {
+        #phone h3 {
             font-size: 30px;
             margin: 11px 0;
             font-weight: 900;
-            color: #14613d;
+            color: var(--primary-color);
             
         }
-        #team p {
+        #phone p {
             margin-bottom: 7px;
             color: rgb(78, 78, 78);
             font-size: 14px;
         }
-        #Teams{
+        #phones{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
         }
-        #Teams div {
-            text-align: center;
+        .phones-div {
             box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
             margin: 10px;
             border-radius: 10px;
-            padding: 15px;
+            padding: 17px 25px;
             cursor: pointer;
             width: 325px;
         }
-        #Teams img {
+        .phones-div div {
+            text-align: center;
+        }
+        #phones img {
             width: 100px;
             margin-bottom: 10px;
         }
         
-        #Teams h4 {
+        #phones h4 {
             font-size: 24px;
-            color: #14613d;
+            color: var(--primary-color);
             font-weight: 600;
         }
-        #Teams p {
+        #phones h5 {
+            font-weight: 600;
+            color: gray;
+            font-size: 18px;
+        }
+        #phones p {
             color: rgb(78, 78, 78);
             margin-bottom: 0;
+        }
+        #phones button {
+            border: none;
+            outline: none;
+            padding: 7px 12px;
+            border-radius: 5px;
+            color: white;
+            background: var(--primary-color);
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 10px;
         }
         #loading{
             display: none;
@@ -88,8 +109,8 @@
             height: 64px;
             margin: 8px;
             border-radius: 50%;
-            border: 6px solid #14613d;
-            border-color: #14613d transparent #14613d transparent;
+            border: 6px solid var(--primary-color);
+            border-color: var(--primary-color) transparent var(--primary-color) transparent;
             animation: lds-dual-ring 1.2s linear infinite;
             }
             @keyframes lds-dual-ring {
@@ -114,35 +135,35 @@
                 .available-data {
                     font-size: 12px;
                 }
-                #Teams {
+                #phones {
                     grid-template-columns: repeat(1, 1fr);
                 }
-                #Teams h5 {
+                #phones h5 {
                     font-size: 18px;
                 }
-                #Teams h4 {
+                #phones h4 {
                     font-size: 21px;
                 }
-                #Teams p {
+                #phones p {
                     font-size: 14px;
                 }
-                #team div {
+                #phone div {
                     width: 89%;
                 }
-                #team img {
+                #phone img {
                     width: 125px;
                 }
-                #team h3 {
+                #phone h3 {
                     font-size: 25px;
                 }
-                #Teams div {
+                #phones div {
                     width: 255px;
                 }
-                #team p {
+                #phone p {
                     margin-bottom: 4px;
                     font-size: 14px;
                 }
-                #Teams {
+                #phones {
                     display: flex;
                     flex-wrap: wrap;
                     justify-content: center;
@@ -152,15 +173,15 @@
                 height: 60px;
                 }
                 .lds-dual-ring:after {
-            content: " ";
-            width: 48px;
-            height: 48px;
-            margin: 6px;
-            border-radius: 50%;
-            border: 5px solid #14613d;
-            border-color: #14613d transparent #14613d transparent;
-            animation: lds-dual-ring 1.2s linear infinite;
-            }
+                    content: " ";
+                    width: 48px;
+                    height: 48px;
+                    margin: 6px;
+                    border-radius: 50%;
+                    border: 5px solid var(--primary-color);
+                    border-color: var(--primary-color) transparent var(--primary-color) transparent;
+                    animation: lds-dual-ring 1.2s linear infinite;
+                    }
             }
                 
             

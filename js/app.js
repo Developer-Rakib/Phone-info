@@ -1,8 +1,16 @@
 
-let Teams = document.getElementById("Teams");
-let team = document.getElementById("team");
+let phones = document.getElementById("phones");
+let phone = document.getElementById("phone");
 let inputFeild = document.getElementById("input-feild");
 let load = document.getElementById("loading");
+
+
+let url = `https://openapi.programming-hero.com/api/phones?search=iphone`
+fetch(url)
+    .then(res => res.json())
+    .then(data => {
+        console.log(data.data[0]);
+    })
 
 document.getElementById("search-btn").addEventListener("click", () => {
 
@@ -11,16 +19,16 @@ document.getElementById("search-btn").addEventListener("click", () => {
     } else {
 
         load.style.display = "block";
-        Teams.textContent = "";
-        team.textContent = "";
-        let url = `https://www.thesportsdb.com/api/v1/json/2/search_all_teams.php?s=${inputFeild.value}&c=Spain`
+        phones.textContent = "";
+        phone.textContent = "";
+        let url = `https://openapi.programming-hero.com/api/phones?search=iphone`
         fetch(url)
             .then(res => res.json())
             .then(data => {
 
 
                 setTimeout(() => {
-                    displyData(data.teams);
+                    displyData(data.data);
 
                 }, 500);
                 setTimeout(() => {
@@ -44,44 +52,50 @@ function displyData(datas) {
         alert("Data Not Avaiable")
 
     } else {
-        datas.forEach(data => {
+        let data20 = datas.slice(0, 20);
+        data20.forEach(data => {
             // console.log(data);
             let div = document.createElement("div");
-
+            div.classList.add("phones-div")
             div.innerHTML = `
-                            <img src="${data.strTeamBadge}" alt="">
-                            <h5>Team Name</h5>
-                            <h4>${data.strTeam}</h4>
-                            <p>League</p>
-                            <p>${data.strLeague}</p>
+                            <div><img src="${data.image}" alt=""></div>
+                            <h5>Phone Name : ${data.phone_name}</h5>
+                            <p>Brand : ${data.brand}</p>
+                            <p>Phone Code : ${data.slug}</p>
+                            <button onclick="displySinglePhoen('${data.slug}')">Tap More Details</button>
 
                 `;
-            Teams.appendChild(div);
+            phones.appendChild(div);
 
 
-            div.addEventListener("click", () => {
-                team.textContent = "";
-                let TeamDiv = document.createElement("div");
 
-                console.log(data);
-                TeamDiv.innerHTML = `
-                                
-                                <img src="${data.strTeamBadge}" alt="">
-                                <h3> ${data.strTeam}</h3>
-                                <p>Team Id : ${data.idTeam}</p>
-                                <p>Formed Year : ${data.intFormedYear}</p>
-                                <p>Sports Type : ${data.strSport}</p>
-                                <p>Team Gender : ${data.strGender}</p>
-                                <p>League : ${data.strLeague}</p>
-                                <p>Stadium : ${data.strStadium}</p>
-                                <p>Description : ${data.strDescriptionEN.slice(0, 150)}</p>
-
-                    `;
-                team.appendChild(TeamDiv);
-                Teams.setAttribute("for", "team");
-
-            })
         });
     }
+
+}
+
+function displySinglePhoen(PhoneCode) {
+
+    console.log(PhoneCode);
+    // phone.textContent = "";
+    // let TeamDiv = document.createElement("div");
+
+    // console.log(data);
+    // TeamDiv.innerHTML = `
+
+    //                 <img src="${data.strTeamBadge}" alt="">
+    //                 <h3> ${data.strTeam}</h3>
+    //                 <p>Team Id : ${data.idTeam}</p>
+    //                 <p>Formed Year : ${data.intFormedYear}</p>
+    //                 <p>Sports Type : ${data.strSport}</p>
+    //                 <p>Team Gender : ${data.strGender}</p>
+    //                 <p>League : ${data.strLeague}</p>
+    //                 <p>Stadium : ${data.strStadium}</p>
+    //                 <p>Description : ${data.strDescriptionEN.slice(0, 150)}</p>
+
+    //     `;
+    // phone.appendChild(TeamDiv);
+    // phones.setAttribute("for", "team");
+
 
 }
