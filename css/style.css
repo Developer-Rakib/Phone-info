@@ -17,19 +17,21 @@
             display: flex;
             justify-content: center;
         }
-        #phone div{
-            width: 35%;
-            text-align: center;
+        .single-phone {
+            width: 530px;
             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
             border-radius: 10px;
-            padding: 25px 15px;
+            padding: 25px 28px;
             margin-bottom: 20px;
+        }
+        .img-div{
+            text-align: center;
         }
         #phone img {
             width: 200px;
         }
-        #phone h3 {
-            font-size: 30px;
+        #phone h5 {
+            font-size: 25px;
             margin: 11px 0;
             font-weight: 900;
             color: var(--primary-color);
@@ -40,6 +42,32 @@
             color: rgb(78, 78, 78);
             font-size: 14px;
         }
+        #mainfeatures , #others {
+            color: rgb(78, 78, 78);
+            font-size: 13px;
+        }
+        #mainfeatures li{}
+        #sensor{}
+        #sensor li{}
+        #others {
+            color: rgb(78, 78, 78);
+            font-size: 13px;
+        }
+        #others li{}
+        #others{}
+        #others li{}
+
+
+
+
+
+
+
+
+
+
+
+
         #phones{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
