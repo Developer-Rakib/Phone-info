@@ -1,0 +1,167 @@
+
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            font-family: 'Manrope', sans-serif;
+            
+        }
+        #input-feild{
+            width: 50%;
+        }
+        #team {
+            display: flex;
+            justify-content: center;
+        }
+        #team div{
+            width: 35%;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            border-radius: 10px;
+            padding: 25px 15px;
+            margin-bottom: 20px;
+        }
+        #team img {
+            width: 200px;
+        }
+        #team h3 {
+            font-size: 30px;
+            margin: 11px 0;
+            font-weight: 900;
+            color: #14613d;
+            
+        }
+        #team p {
+            margin-bottom: 7px;
+            color: rgb(78, 78, 78);
+            font-size: 14px;
+        }
+        #Teams{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+        }
+        #Teams div {
+            text-align: center;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+            margin: 10px;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            width: 325px;
+        }
+        #Teams img {
+            width: 100px;
+            margin-bottom: 10px;
+        }
+        
+        #Teams h4 {
+            font-size: 24px;
+            color: #14613d;
+            font-weight: 600;
+        }
+        #Teams p {
+            color: rgb(78, 78, 78);
+            margin-bottom: 0;
+        }
+        #loading{
+            display: none;
+            font-size: 50px;
+            text-align: center;
+        }
+        .available-data {
+            font-size: 15px;
+            text-align: center;
+            margin: 10px 0;
+            color: gray;
+        }
+
+        .lds-dual-ring {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            }
+            .lds-dual-ring:after {
+            content: " ";
+            display: block;
+            width: 64px;
+            height: 64px;
+            margin: 8px;
+            border-radius: 50%;
+            border: 6px solid #14613d;
+            border-color: #14613d transparent #14613d transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+            }
+            @keyframes lds-dual-ring {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+            }
+
+            @media (max-width : 600px) {
+                #input-feild {
+                    width: 60%;
+                    height: 33px;
+                    font-size: 14px;
+                }
+                #search-btn {
+                    padding: 4px 6px;
+                    font-size: 14px;
+                }
+                .available-data {
+                    font-size: 12px;
+                }
+                #Teams {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+                #Teams h5 {
+                    font-size: 18px;
+                }
+                #Teams h4 {
+                    font-size: 21px;
+                }
+                #Teams p {
+                    font-size: 14px;
+                }
+                #team div {
+                    width: 89%;
+                }
+                #team img {
+                    width: 125px;
+                }
+                #team h3 {
+                    font-size: 25px;
+                }
+                #Teams div {
+                    width: 255px;
+                }
+                #team p {
+                    margin-bottom: 4px;
+                    font-size: 14px;
+                }
+                #Teams {
+                    display: flex;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                }
+                .lds-dual-ring {
+                width: 60px;
+                height: 60px;
+                }
+                .lds-dual-ring:after {
+            content: " ";
+            width: 48px;
+            height: 48px;
+            margin: 6px;
+            border-radius: 50%;
+            border: 5px solid #14613d;
+            border-color: #14613d transparent #14613d transparent;
+            animation: lds-dual-ring 1.2s linear infinite;
+            }
+            }
+                
+            
+  
