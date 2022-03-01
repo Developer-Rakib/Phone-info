@@ -1,4 +1,4 @@
-
+// select element 
 let phones = document.getElementById("phones");
 let phone = document.getElementById("phone");
 let inputFeild = document.getElementById("input-feild");
@@ -6,19 +6,12 @@ let load = document.getElementById("loading");
 let notFoundSec = document.getElementById("not-found-section");
 
 
-// let url = `https://openapi.programming-hero.com/api/phones?search`
-// fetch(url)
-//     .then(res => res.json())
-//     .then(data => {
-//         data.data.forEach(a => console.log(a.brand))
-//     })
-
+// search phone 
 document.getElementById("search-btn").addEventListener("click", () => {
 
     if (isNaN(inputFeild.value) == false || inputFeild.value == "") {
         alert("please enter valid input")
     } else {
-
         load.style.display = "block";
         phones.textContent = "";
         phone.textContent = "";
@@ -30,23 +23,16 @@ document.getElementById("search-btn").addEventListener("click", () => {
             .then(data => {
 
 
-                setTimeout(() => {
-                    if (data.status == false) {
-                        let notFoundDiv = document.createElement("div");
-                        notFoundDiv.innerHTML = `
+                if (data.status == false) {
+                    load.style.display = "none";
+                    let notFoundDiv = document.createElement("div");
+                    notFoundDiv.innerHTML = `
                             <img id="not-found" src="img/notFound.png" alt="">
                         `;
-                        notFoundSec.appendChild(notFoundDiv)
-                    } else {
-                        displyData(data.data);
-                    }
-                }, 500);
-
-                setTimeout(() => {
-                    load.style.display = "none";
-                }, 500);
-
-
+                    notFoundSec.appendChild(notFoundDiv)
+                } else {
+                    displyData(data.data);
+                }
 
             })
         inputFeild.value = "";
@@ -55,7 +41,7 @@ document.getElementById("search-btn").addEventListener("click", () => {
 
 })
 
-
+// display Phones 
 const displyData = datas => {
 
     let data20 = datas.slice(0, 20);
@@ -71,23 +57,20 @@ const displyData = datas => {
             `;
         phones.appendChild(div);
     });
+    load.style.display = "none";
 
 }
 
+
+
+// display phone details 
 const leadSinglePhone = PhoneCode => {
     load.style.display = "block";
     let url = `https://openapi.programming-hero.com/api/phone/${PhoneCode}`;
     fetch(url)
         .then(res => res.json())
         .then(data => {
-
-            setTimeout(() => {
-                displySinglePhone(data.data)
-            }, 500);
-
-            setTimeout(() => {
-                load.style.display = "none";
-            }, 500);
+            displySinglePhone(data.data)
         })
 }
 const displySinglePhone = data => {
@@ -98,7 +81,6 @@ const displySinglePhone = data => {
         data.releaseDate = "Release date not found";
     }
     let sensor = String(data.mainFeatures.sensors).replaceAll(",", ", ");
-    // let a = sensor 
     singlePhone.innerHTML = `
 
                     <div class="img-div"><img src="${data.image}" alt=""></div>
@@ -139,6 +121,6 @@ const displySinglePhone = data => {
             `;
         singlePhone.appendChild(div);
     }
-
+    load.style.display = "none";
 
 }

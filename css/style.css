@@ -1,4 +1,4 @@
-
+        /* default css  */
         *{
             padding: 0;
             margin: 0;
@@ -10,12 +10,24 @@
         :root{
             --primary-color : #ff0569;
         }
-        
+
+
+
+
+
+        /* -------------------
+            header section  
+        ---------------------*/
         .header {
             color: var(--primary-color);
             font-family: 'Bebas Neue', cursive;
             letter-spacing: 1px;
         }
+
+
+        /* -------------------
+            search section  
+        ---------------------*/
         #search-btn{
             color: var(--primary-color);
             background-color: white;
@@ -29,9 +41,26 @@
         #input-feild{
             width: 50%;
         }
+        
+        .available-data {
+            font-size: 15px;
+            text-align: center;
+            margin: 10px 0;
+            color: gray;
+        }
+
+
+        /* -------------------
+            404 section  
+        ---------------------*/
         #not-found {
             width: 80%!important;
         }
+
+
+        /* -----------------------
+            phone details section  
+        -------------------------*/
         #phone {
             display: flex;
             justify-content: center;
@@ -65,17 +94,14 @@
             color: rgb(78, 78, 78);
             font-size: 13px;
         }
-        #mainfeatures li{}
-        #sensor{}
-        #sensor li{}
         #others {
             color: rgb(78, 78, 78);
             font-size: 13px;
         }
-        #others li{}
-        #others{}
-        #others li{}
 
+        /* -------------------
+            Phones section  
+        ---------------------*/
         #phones{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -128,19 +154,20 @@
             background-color: white;
 
         }
-        
+
+
+
+
+        /* -------------------
+            loeading section  
+        ---------------------*/
 
         #loading{
             display: none;
             font-size: 50px;
             text-align: center;
         }
-        .available-data {
-            font-size: 15px;
-            text-align: center;
-            margin: 10px 0;
-            color: gray;
-        }
+
 
         .lds-dual-ring {
             display: inline-block;
@@ -167,6 +194,10 @@
             }
         }
 
+
+        /* -----------------------
+            responsive section  
+        ----===-----------------*/
         @media (max-width : 600px) {
             #input-feild {
                 width: 60%;
@@ -236,8 +267,8 @@
                 border: 5px solid var(--primary-color);
                 border-color: var(--primary-color) transparent var(--primary-color) transparent;
                 animation: lds-dual-ring 1.2s linear infinite;
-                }
             }
+        }
                 
             
   
