@@ -3,6 +3,7 @@ let phones = document.getElementById("phones");
 let phone = document.getElementById("phone");
 let inputFeild = document.getElementById("input-feild");
 let load = document.getElementById("loading");
+let notFoundSec = document.getElementById("not-found-section");
 
 
 // let url = `https://openapi.programming-hero.com/api/phones?search`
@@ -21,6 +22,8 @@ document.getElementById("search-btn").addEventListener("click", () => {
         load.style.display = "block";
         phones.textContent = "";
         phone.textContent = "";
+        notFoundSec.textContent = "";
+
         let url = `https://openapi.programming-hero.com/api/phones?search=${inputFeild.value}`
         fetch(url)
             .then(res => res.json())
@@ -29,7 +32,11 @@ document.getElementById("search-btn").addEventListener("click", () => {
 
                 setTimeout(() => {
                     if (data.status == false) {
-                        alert("Data Not Available")
+                        let notFoundDiv = document.createElement("div");
+                        notFoundDiv.innerHTML = `
+                            <img id="not-found" src="img/notFound.png" alt="">
+                        `;
+                        notFoundSec.appendChild(notFoundDiv)
                     } else {
                         displyData(data.data);
                     }
@@ -59,7 +66,7 @@ const displyData = datas => {
                         <div><img src="${data.image}" alt=""></div>
                         <h5>Phone Name : ${data.phone_name}</h5>
                         <p>Brand : ${data.brand}</p>
-                        <button onclick="leadSinglePhone('${data.slug}')">Explore Now</button>
+                        <button onclick="leadSinglePhone('${data.slug}')">Explore</button>
 
             `;
         phones.appendChild(div);
@@ -88,8 +95,10 @@ const displySinglePhone = data => {
     let singlePhone = document.createElement("div");
     singlePhone.classList.add("single-phone");
     if (data.releaseDate == "") {
-        data.releaseDate = "Release date not found"
+        data.releaseDate = "Release date not found";
     }
+    let sensor = String(data.mainFeatures.sensors).replaceAll(",", ", ");
+    // let a = sensor 
     singlePhone.innerHTML = `
 
                     <div class="img-div"><img src="${data.image}" alt=""></div>
@@ -102,11 +111,10 @@ const displySinglePhone = data => {
                         <li>display Size : ${data.mainFeatures.displaySize}</li>
                         <li>Memory : ${data.mainFeatures.memory}</li>
                         <li>ChipSet : ${data.mainFeatures.chipSet}</li>
-                        <li>Sensors : 
+                        <li id="sensor">Sensors : 
                             <ul id="sensor :">
-                                <li>${data.mainFeatures.sensors[0]}</li>
-                                <li>${data.mainFeatures.sensors[1]}</li>
-                                <li>${data.mainFeatures.sensors[2]}</li>
+                                <li>${sensor}</li>
+
                             </ul>
                         </li>
                     </ul>

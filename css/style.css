@@ -27,6 +27,9 @@
         #input-feild{
             width: 50%;
         }
+        #not-found {
+            width: 800px !important;
+        }
         #phone {
             display: flex;
             justify-content: center;
