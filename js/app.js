@@ -4,14 +4,17 @@ let phone = document.getElementById("phone");
 let inputFeild = document.getElementById("input-feild");
 let load = document.getElementById("loading");
 let notFoundSec = document.getElementById("not-found-section");
+let WrongInput = document.getElementById("wrong-input");
 
 
 // search phone 
 document.getElementById("search-btn").addEventListener("click", () => {
 
     if (isNaN(inputFeild.value) == false || inputFeild.value == "") {
-        alert("please enter valid input")
+        notFoundSec.textContent = "";
+        WrongInput.innerText = "Please Enter valid input";
     } else {
+        WrongInput.innerText = '';
         load.style.display = "block";
         phones.textContent = "";
         phone.textContent = "";
