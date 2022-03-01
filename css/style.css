@@ -13,6 +13,8 @@
         
         .header {
             color: var(--primary-color);
+            font-family: 'Bebas Neue', cursive;
+            letter-spacing: 1px;
         }
         #search-btn{
             color: var(--primary-color);
@@ -28,7 +30,7 @@
             width: 50%;
         }
         #not-found {
-            width: 800px !important;
+            width: 80%!important;
         }
         #phone {
             display: flex;
@@ -45,7 +47,7 @@
             text-align: center;
         }
         #phone img {
-            width: 200px;
+            width: 175px;
         }
         #phone h5 {
             font-size: 25px;
