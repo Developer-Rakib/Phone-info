@@ -68,6 +68,8 @@ const displyData = datas => {
 
 // display phone details 
 const leadSinglePhone = PhoneCode => {
+    location.hash = '#phone';
+    phone.textContent = "";
     load.style.display = "block";
     let url = `https://openapi.programming-hero.com/api/phone/${PhoneCode}`;
     fetch(url)
