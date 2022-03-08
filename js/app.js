@@ -77,6 +77,7 @@ const leadSinglePhone = PhoneCode => {
         .then(data => {
             displySinglePhone(data.data)
         })
+
 }
 const displySinglePhone = data => {
     phone.textContent = "";
@@ -127,5 +128,8 @@ const displySinglePhone = data => {
         singlePhone.appendChild(div);
     }
     load.style.display = "none";
+    location.hash = '';
+
 
 }
+
