@@ -6,6 +6,13 @@ let load = document.getElementById("loading");
 let notFoundSec = document.getElementById("not-found-section");
 let WrongInput = document.getElementById("wrong-input");
 
+// Enter button 
+inputFeild.addEventListener("keyup", function (event) {
+    event.preventDefault();
+    if (event.key == "Enter") {
+        document.getElementById("search-btn").click();
+    }
+});
 
 // search phone 
 document.getElementById("search-btn").addEventListener("click", () => {
